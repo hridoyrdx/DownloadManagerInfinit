@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion '29.0.3'
+    defaultConfig {
+        applicationId 'ir.siaray.downloadmanagerplussample'
+        minSdkVersion 17
+        targetSdkVersion 30
+        versionCode 23
+        versionName "1.4.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    productFlavors {
+    }
+    lintOptions {
+        checkReleaseBuilds false
+
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.pnikosis:materialish-progress:1.7'
+    testImplementation 'junit:junit:4.12'
+    implementation project(':downloadmanagerplus')
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation 'com.akexorcist:round-corner-progress-bar:2.1.1'
+}
